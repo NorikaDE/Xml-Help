@@ -1,10 +1,17 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
-
+  
   <PropertyGroup>
     <TargetFramework>netcoreapp2.1</TargetFramework>
     <Title>XML comment based help</Title>
     <Description>This class library adds functionality to your program to deal with complex comment based xml help.</Description>
-    <PackageLicenseUrl>https://opensource.org/licenses/MIT</PackageLicenseUrl>
   </PropertyGroup>
+  
+  <ItemGroup>
+    <Content Include="..\..\Build\NuGet\Versioning.props">
+      <Link>Versioning\Versioning.props</Link>
+    </Content>
+  </ItemGroup>
+
+  <Import Project="$(MsBuildThisFileDirectory)/../../Build/NuGet/Versioning.props" />
 
 </Project>
