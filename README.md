@@ -44,4 +44,8 @@ This class library adds functionality to your program to deal with comment based
  
  XmlElement myWantedElement = document.GetElementsByName("Target").First();
  IXmlHelp myWantedElementHelp = myWantedElement.GetHelp();
+ 
+ IXmlCommentHelpParagraph descriptionHelpParagraph = myWantedElementHelp.LookUp("Description");
+ Console.WriteLine(descriptionHelpParagraph.Content);
+ // Writes "Copies given files to the output directory" to the console output
 ```
