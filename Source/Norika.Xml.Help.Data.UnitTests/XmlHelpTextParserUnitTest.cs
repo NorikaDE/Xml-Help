@@ -174,10 +174,11 @@ namespace Norika.Xml.Help.Data.UnitTests
 
             IList<IXmlCommentHelpParagraph> returnValue = _sut.Parse(testValueInput);
 
-            Assert.AreEqual(keywordValue, returnValue[0].Name);
-            Assert.AreEqual(keywordContent, returnValue[0].Content[0]);
-            Assert.AreEqual(keyword2Value, returnValue[1].Name);
-            Assert.AreEqual(keyword2Content, returnValue[1].Content[0]);
+
+            Assert.AreEqual(keywordContent, returnValue.FirstOrDefault(
+                s => s.Name.Equals(keywordValue))?.Content[0]);
+            Assert.AreEqual(keyword2Content, returnValue.FirstOrDefault(
+                s => s.Name.Equals(keyword2Value))?.Content[0]);
         }
         
         [TestMethod]
