@@ -31,6 +31,13 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: Copy Build Artifacts
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '**/$(BuildConfiguration)/**/?(*.exe|*.dll|*.pdb)'
+    TargetFolder: $(Build.ArtifactStagingDirectory)
     
 - task: DotNetCoreCLI@2
   displayName: Run Tests
@@ -48,6 +55,12 @@ steps:
     nobuild: true
     versioningScheme: 'off'
 
+- task: PublishBuildArtifacts@1
+  displayName: Copy To Drop
+  inputs:
+    ArtifactName: drop
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+
 - task: DotNetCoreCLI@2
   displayName: Publish Packages
   inputs:
@@ -55,3 +68,4 @@ steps:
     publishWebProjects: false
     projects: '**/*.csproj'
     zipAfterPublish: false
+
