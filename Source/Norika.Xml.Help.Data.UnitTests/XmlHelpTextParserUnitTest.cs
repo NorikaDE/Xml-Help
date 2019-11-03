@@ -124,6 +124,7 @@ namespace Norika.Xml.Help.Data.UnitTests
 
             IList<IXmlCommentHelpParagraph> returnValue = _sut.Parse(inputValue);
 
+            Assert.AreEqual(1, returnValue.Count);
             Assert.AreEqual("SYNOPSIS", returnValue[0].Name);
             Assert.AreEqual("Should return correct input", returnValue[0].Content[0]);
             Assert.AreEqual("bla", returnValue[0].Content[1]);
