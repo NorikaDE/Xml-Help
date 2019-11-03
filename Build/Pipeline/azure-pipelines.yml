@@ -30,7 +30,14 @@ steps:
     configuration: '$(buildConfiguration)'
     
 - task: DotNetCoreCLI@2
+  continueOnError: false
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage" --settings "$(runSettings)"'
+
+- task: NuGetCommand@2
+  inputs:
+    command: 'pack'
+    packagesToPack: 'Build/NuGet/Norika.Xml.Help.nuspec'
+    versioningScheme: 'byBuildNumber'
