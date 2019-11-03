@@ -3,4 +3,35 @@
 ![Azure DevOps tests](https://img.shields.io/azure-devops/tests/NorikaDE/XML-Help/1)
 
 # Xml-Help
-Extension for the .net xml implementation. Adds possibility to add comment based help for any xml element. 
+This class library adds functionality to your program to deal with comment based xml help.
+
+```xml
+  <!--
+	 .SYNOPSIS
+	 Copies given files to the output directory
+	 
+	 .DESCRIPTION
+	 Copies given files to the output directory
+	 
+	 .PARAMETER $(CopyDestinationPath)
+	 Where should the files go to? 
+	 
+	 .PARAMETER $(CopyDestinationSource)
+	 Where should the files got from?
+	 
+	 .EXAMPLE
+	 <CallTarget Targets="CoptyOutputToDestination" />
+	 <!~~ Calls the target "CopyOutputToDestination" >
+
+  -->
+  <Target Name="CopyOutputToDestination">
+    <ItemGroup>
+      <OutputFiles Include="$(OutDir)**\*"></OutputFiles>
+    </ItemGroup>
+    <Message Text="Copying output file to destination: @(OutputFiles)" Importance="high"/>
+    <Copy SourceFiles="@(OutputFiles)" 
+          DestinationFolder="$(CopyDestionationPath)\%(RecursiveDir)" 
+          OverwriteReadOnlyFiles="true"></Copy>
+    <OnError ExecuteTargets="OnErrorTarget" />
+  </Target>
+```
