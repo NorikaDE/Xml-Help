@@ -34,7 +34,7 @@ namespace Norika.Xml.Help.Data
 
             if (keywords.Count == 0)
             {
-                ApplyFallBackStrategy(string.Join(Environment.NewLine, help), keywords);
+                ApplyFallBackStrategy(string.Join('\n', help), keywords);
             }
             return keywords;
         }
@@ -88,7 +88,7 @@ namespace Norika.Xml.Help.Data
         /// <returns>Prepared input</returns>
         private IList<string> PrepareInput(string helpText)
         {
-            IList<string> splitByNewLine = helpText.Split(Environment.NewLine);
+            IList<string> splitByNewLine = helpText.Split('\n');
             return splitByNewLine;
         }
 
@@ -102,7 +102,7 @@ namespace Norika.Xml.Help.Data
         {
             if (string.IsNullOrWhiteSpace(helpText)) return null;
             
-            IList<string> slittedByNewLine = helpText.Split(Environment.NewLine);
+            IList<string> slittedByNewLine = helpText.Split('\n');
             XmlHelpKeyword xmlHelp = new XmlHelpKeyword(Options.DefaultXmlHelpKeyword);
             foreach (string line in slittedByNewLine)
             {
