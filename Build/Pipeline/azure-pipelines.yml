@@ -17,12 +17,15 @@ variables:
 
 steps:
 - task: NuGetToolInstaller@1
+  displayName: Install NuGet Tools
 
 - task: NuGetCommand@2
+  displayName: Restoring NuGet Packages
   inputs:
     restoreSolution: '$(solution)'
 
 - task: VSBuild@1
+  displayName: Build Projects
   inputs:
     solution: '$(solution)'
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
@@ -30,6 +33,7 @@ steps:
     configuration: '$(buildConfiguration)'
     
 - task: DotNetCoreCLI@2
+  displayName: Run Tests
   continueOnError: false
   inputs:
     command: test
@@ -37,8 +41,17 @@ steps:
     arguments: '--configuration $(buildConfiguration) --collect "Code coverage" --settings "$(runSettings)"'
 
 - task: DotNetCoreCLI@2
+  displayName: Pack NuGet Packages
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
     nobuild: true
     versioningScheme: 'off'
+
+- task: DotNetCoreCLI@2
+  displayName: Publish Packages
+  inputs:
+    command: 'publish'
+    publishWebProjects: false
+    projects: '**/*.csproj'
+    zipAfterPublish: false
