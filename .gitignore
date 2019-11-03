@@ -1,0 +1,6 @@
+obj
+bin
+*.dll
+*.pdb
+*.user
+*.DS_Store

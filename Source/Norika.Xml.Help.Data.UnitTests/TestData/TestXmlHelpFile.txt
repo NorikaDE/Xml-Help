@@ -1,0 +1,11 @@
+.DESCRIPTION
+This is a test description
+
+.SYNOPSIS
+This is a test synopsis
+
+.PARAMETER Input
+This is the test input parameter description
+
+.PARAMETER Output
+This is the test output parameter description
