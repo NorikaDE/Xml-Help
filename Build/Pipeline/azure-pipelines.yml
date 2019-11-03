@@ -48,24 +48,8 @@ steps:
     nobuild: true
     versioningScheme: 'off'
 
-- task: CopyFiles@2
-  displayName: Copy Build Artifacts
-  inputs:
-    SourceFolder: '$(Build.SourcesDirectory)'
-    Contents: '**/$(BuildConfiguration)/**/?(*.exe|*.dll|*.pdb|*.nupgk)'
-    TargetFolder: $(Build.ArtifactStagingDirectory)
-
 - task: PublishBuildArtifacts@1
   displayName: Copy To Drop
   inputs:
     ArtifactName: drop
     PathtoPublish: '$(Build.ArtifactStagingDirectory)'
-
-- task: DotNetCoreCLI@2
-  displayName: Publish Packages
-  inputs:
-    command: 'publish'
-    publishWebProjects: false
-    projects: '**/*.csproj'
-    zipAfterPublish: false
-
