@@ -11,6 +11,8 @@ This class library adds functionality to your program to deal with comment based
 ### XML Comment based help
 This following sample represents a msbuild target (xml) with a comment based help. The next step shows how to access the help with the code provided by this repository. 
 
+The help syntax is derived from the [PowerShell Comment Based Help](https://docs.microsoft.com/en-us/PowerShell/module/microsoft.PowerShell.core/about/about_comment_based_help?view=powershell-6).
+
 ```xml
   <!--
 	 .SYNOPSIS
