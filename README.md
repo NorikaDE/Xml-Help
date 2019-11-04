@@ -1,9 +1,15 @@
+# Xml-Help
+This class library adds functionality to your program to deal with comment based xml help. Like shown in the following sample you could use the dotnet xml implementation to access the xml based help.
+
+## Build
 [![Build Status](https://dev.azure.com/NorikaDE/Xml-Help/_apis/build/status/NorikaDE.Xml-Help?branchName=master)](https://dev.azure.com/NorikaDE/Xml-Help/_build/latest?definitionId=1&branchName=master)
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/NorikaDE/Xml-Help/1)
 ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/NorikaDE/XML-Help/1?compact_message)
 
-# Xml-Help
-This class library adds functionality to your program to deal with comment based xml help. Like shown in the following sample you could use the dotnet xml implementation to access the xml based help.
+## Sample
+
+### XML Comment based help
+This following sample represents a msbuild target (xml) with a comment based help. The next step shows how to access the help with the code provided by this repository. 
 
 ```xml
   <!--
@@ -21,7 +27,7 @@ This class library adds functionality to your program to deal with comment based
 	 
 	 .EXAMPLE
 	   <CallTarget Targets="CoptyOutputToDestination" />
-	   <!~~ Calls the target "CopyOutputToDestination" >
+	   <!~~ Calls the target "CopyOutputToDestination" ~~>
 
   -->
   <Target Name="CopyOutputToDestination">
@@ -36,7 +42,7 @@ This class library adds functionality to your program to deal with comment based
   </Target>
 ```
 
-## Accessing the comment based help
+### Accessing the comment based help
 
 ```cs
  XmlDocument document = new XmlDocument();
