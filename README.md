@@ -43,6 +43,8 @@ This following sample represents a msbuild target (xml) with a comment based hel
 ```
 
 ### Accessing the comment based help
+You can use the method `GetHelp()` as extension on every XmlElement or XmlNode.
+
 
 ```cs
  XmlDocument document = new XmlDocument();
