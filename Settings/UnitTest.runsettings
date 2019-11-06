@@ -8,7 +8,7 @@
                         <!-- Match assembly file paths: --> 
                         <ModulePaths> 
                             <Include> 
-                                <ModulePath>.*\Norika.Xml.Help.*.dll</ModulePath> 
+                                <ModulePath>.*\Norika.Xml.*.dll</ModulePath> 
                             </Include> 
                             <Exclude> 
                                 <ModulePath>.*tests.dll</ModulePath> 
