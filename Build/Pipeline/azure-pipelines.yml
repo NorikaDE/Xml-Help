@@ -14,6 +14,8 @@ variables:
   buildPlatform: 'Any CPU'
   buildConfiguration: 'Release'
   runSettings: 'Settings/UnitTest.runsettings'
+  rootNameSpace: 'Norika.Xml'
+  packgeVersion: "0.1.0-alpha$(Build.BuildId)"
 
 steps:
 - task: NuGetToolInstaller@1
@@ -31,6 +33,14 @@ steps:
     msbuildArgs: '/p:DeployOnBuild=true /p:WebPublishMethod=Package /p:PackageAsSingleFile=true /p:SkipInvalidConfigurations=true /p:PackageLocation="$(build.artifactStagingDirectory)"'
     platform: '$(buildPlatform)'
     configuration: '$(buildConfiguration)'
+
+- task: CopyFiles@2
+  displayName: 'Commissioning Binaries'
+  inputs:
+    SourceFolder: '$(Agent.BuildDirectory)'
+    Contents: '**/bin/$(buildConfiguration)/**/$(rootNameSpace)*.dll'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/Binaries'
+    flattenFolders: true
     
 - task: DotNetCoreCLI@2
   displayName: Run Tests
@@ -45,11 +55,19 @@ steps:
   inputs:
     command: 'pack'
     packagesToPack: '**/*.csproj'
+    packDirectory: '$(Build.ArtifactStagingDirectory)/Packages'
     nobuild: true
-    versioningScheme: 'off'
+    versioningScheme: 'byEnvVar'
+    versionEnvVar: 'packgeVersion'
 
 - task: PublishBuildArtifacts@1
-  displayName: Copy To Drop
+  displayName: Copy Binaries To Drop
   inputs:
-    ArtifactName: drop
-    PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+    ArtifactName: Binaries
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Binaries'
+
+- task: PublishBuildArtifacts@1
+  displayName: Copy Packages To Drop
+  inputs:
+    ArtifactName: Packages
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/Packages'
