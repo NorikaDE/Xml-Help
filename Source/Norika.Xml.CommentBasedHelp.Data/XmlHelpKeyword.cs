@@ -1,9 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Text.RegularExpressions;
-using Norika.Xml.Help.Data.Interfaces;
+using Norika.Xml.CommentBasedHelp.Data.Interfaces;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Implementation of the <see cref="IXmlCommentHelpParagraph"/> interface providing

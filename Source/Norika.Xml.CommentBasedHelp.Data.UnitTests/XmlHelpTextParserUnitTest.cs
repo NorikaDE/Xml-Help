@@ -2,9 +2,9 @@
 using System.IO;
 using System.Linq;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
-using Norika.Xml.Help.Data.Interfaces;
+using Norika.Xml.CommentBasedHelp.Data.Interfaces;
 
-namespace Norika.Xml.Help.Data.UnitTests
+namespace Norika.Xml.CommentBasedHelp.Data.UnitTests
 {
     [TestClass]
     public class XmlHelpTextParserUnitTest

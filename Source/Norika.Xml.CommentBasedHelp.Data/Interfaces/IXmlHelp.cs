@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace Norika.Xml.Help.Data.Interfaces
+namespace Norika.Xml.CommentBasedHelp.Data.Interfaces
 {
     /// <summary>
     /// Collection of <see cref="IXmlCommentHelpParagraph"/>

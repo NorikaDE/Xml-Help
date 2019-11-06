@@ -7,7 +7,6 @@
   <PropertyGroup>
     <Title>XML comment based help processor</Title>
     <PackageDescription>This class library adds functionality to your program to deal with complex comment based xml help.</PackageDescription>
-    <PackageVersion>0.1.0-alpha$(SnapshotPackageVersion)</PackageVersion>
     <Authors>NorikaDE</Authors>
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <RepositoryUrl>https://github.com/NorikaDE/Xml-Help</RepositoryUrl>

@@ -1,4 +1,4 @@
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     public static class Options
     {

@@ -2,9 +2,9 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
-using Norika.Xml.Help.Data.Interfaces;
+using Norika.Xml.CommentBasedHelp.Data.Interfaces;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Implementation of the <see cref="IXmlHelp"/> interface providing the xml comment based

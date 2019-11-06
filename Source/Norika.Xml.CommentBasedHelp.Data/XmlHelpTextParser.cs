@@ -1,8 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using Norika.Xml.Help.Data.Interfaces;
+using Norika.Xml.CommentBasedHelp.Data.Interfaces;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Parser for text based help.

@@ -1,6 +1,6 @@
 using System.Text.RegularExpressions;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Helper struct for creating required RegRex for matching

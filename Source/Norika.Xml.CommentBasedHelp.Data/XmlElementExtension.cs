@@ -1,7 +1,7 @@
 ﻿using System.Xml;
-using Norika.Xml.Help.Data.Interfaces;
+using Norika.Xml.CommentBasedHelp.Data.Interfaces;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Contains extension methods for comment based xml help.

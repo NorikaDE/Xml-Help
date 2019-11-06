@@ -1,6 +1,6 @@
 ﻿using System.Text.RegularExpressions;
 
-namespace Norika.Xml.Help.Data
+namespace Norika.Xml.CommentBasedHelp.Data
 {
     /// <summary>
     /// Builder for creating regular expression to identify xml based paragraph header keywords
