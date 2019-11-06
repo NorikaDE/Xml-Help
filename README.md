@@ -5,6 +5,7 @@ This class library adds functionality to your program to deal with comment based
 [![Build Status](https://dev.azure.com/NorikaDE/Xml-Help/_apis/build/status/NorikaDE.Xml-Help?branchName=master)](https://dev.azure.com/NorikaDE/Xml-Help/_build/latest?definitionId=1&branchName=master)
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/NorikaDE/Xml-Help/1)
 ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/NorikaDE/XML-Help/1?compact_message)
+[![CodeFactor](https://www.codefactor.io/repository/github/norikade/xml-help/badge/master)](https://www.codefactor.io/repository/github/norikade/xml-help/overview/master)
 
 ## Sample
 
