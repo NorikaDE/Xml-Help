@@ -66,7 +66,16 @@ steps:
   inputs:
     command: test
     projects: '**/*Tests/*.csproj'
-    arguments: '--configuration $(buildConfiguration) --collect "Code coverage" --settings "$(runSettings)" --results-directory "$(Build.ArtifactStagingDirectory)\TestResults"'
+    arguments: '--configuration $(buildConfiguration) --collect "Code coverage" --settings "$(runSettings)"'
+
+- task: CopyFiles@2
+  displayName: 'Commissioning Test Results'
+  inputs:
+    SourceFolder: '$(Agent.TempDirectory)'
+    Contents: '/**/*.trx'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/TestResults'
+    flattenFolders: true
+
 - task: SonarCloudAnalyze@1
 
 - task: SonarCloudPublish@1
