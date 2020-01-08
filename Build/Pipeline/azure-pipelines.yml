@@ -25,6 +25,8 @@ steps:
   displayName: Restoring NuGet Packages
   inputs:
     restoreSolution: '$(solution)'
+    vstsFeed: '7aa7b5bd-02b4-4a9d-b10b-4a6de0055a51'
+    includeNuGetOrg: true
 
 - task: VSBuild@1
   displayName: Build Projects
@@ -41,6 +43,14 @@ steps:
     Contents: '**/bin/$(buildConfiguration)/**/$(rootNameSpace)*.dll'
     TargetFolder: '$(Build.ArtifactStagingDirectory)/Binaries'
     flattenFolders: true
+
+- task: CopyFiles@2
+  displayName: 'Commissioning Build Output'
+  inputs:
+    SourceFolder: '$(Build.SourcesDirectory)'
+    Contents: '$(Build.SourcesDirectory)/**/*.*'
+    TargetFolder: '$(Build.ArtifactStagingDirectory)/BuildWorkspace'
+    flattenFolders: false
     
 - task: DotNetCoreCLI@2
   displayName: Run Tests
@@ -71,3 +81,9 @@ steps:
   inputs:
     ArtifactName: Packages
     PathtoPublish: '$(Build.ArtifactStagingDirectory)/Packages'
+
+- task: PublishBuildArtifacts@1
+  displayName: Copy To Drop Build Output
+  inputs:
+    ArtifactName: BuildWorkspace
+    PathtoPublish: '$(Build.ArtifactStagingDirectory)/BuildWorkspace'
