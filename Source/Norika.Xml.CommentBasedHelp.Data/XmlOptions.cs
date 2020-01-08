@@ -18,11 +18,11 @@ namespace Norika.Xml.CommentBasedHelp.Data
         /// <summary>
         /// Identifier prefix a help title keyword is starting with
         /// </summary>
-        public char HelpKeywordPrefixIdentifier;
+        public char HelpKeywordPrefixIdentifier { get; private set; }
         
         /// <summary>
         /// Default help section keyword
         /// </summary>
-        public string DefaultXmlHelpKeyword;
+        public string DefaultXmlHelpKeyword { get; private set; }
     }
 }
