@@ -99,6 +99,17 @@ namespace Norika.Xml.CommentBasedHelp.Data
         {
             return _paragraphs.Remove(item);
         }
+        
+        /// <summary>
+        /// <inheritdoc cref="IXmlHelp.Remove(string,bool)"/>
+        /// </summary>
+        public bool Remove(string paragraphName, bool distinctOnly)
+        {
+            IList<IXmlCommentHelpParagraph> removeItems =
+                _paragraphs.Where(x => x.Name.Equals(paragraphName)).ToList();
+
+            return removeItems.Aggregate(true, (current, paragraph) => current && _paragraphs.Remove(paragraph));
+        }
 
         /// <summary>
         /// <inheritdoc cref="IList.IndexOf"/>
@@ -154,17 +165,6 @@ namespace Norika.Xml.CommentBasedHelp.Data
         public IList<IXmlCommentHelpParagraph> LookUp(string paragraphName, StringComparison comparison)
         {
             return _paragraphs.Where(p => p.Name.Equals(paragraphName, comparison)).ToList();
-        }
-
-        /// <summary>
-        /// <inheritdoc cref="IXmlHelp.Remove(string,bool)"/>
-        /// </summary>
-        public bool Remove(string paragraphName, bool distinctOnly)
-        {
-            IList<IXmlCommentHelpParagraph> removeItems =
-                _paragraphs.Where(x => x.Name.Equals(paragraphName)).ToList();
-
-            return removeItems.Aggregate(true, (current, paragraph) => current && _paragraphs.Remove(paragraph));
         }
     }
 }
