@@ -14,7 +14,7 @@ namespace Norika.Xml.CommentBasedHelp.Data
         /// <summary>
         /// Identifier prefix for new paragraphs. 
         /// </summary>
-        private static readonly char HelpKeywordPrefixIdentifier = Options.HelpKeywordPrefixIdentifier;
+        private static readonly char HelpKeywordPrefixIdentifier = XmlHelpOptions.Default.HelpKeywordPrefixIdentifier;
 
         /// <summary>
         /// Constructor

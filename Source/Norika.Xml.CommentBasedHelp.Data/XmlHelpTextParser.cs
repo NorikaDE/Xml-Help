@@ -103,7 +103,7 @@ namespace Norika.Xml.CommentBasedHelp.Data
             if (string.IsNullOrWhiteSpace(helpText)) return null;
             
             IList<string> slittedByNewLine = helpText.Split('\n');
-            XmlHelpKeyword xmlHelp = new XmlHelpKeyword(Options.DefaultXmlHelpKeyword);
+            XmlHelpKeyword xmlHelp = new XmlHelpKeyword(XmlHelpOptions.Default.DefaultXmlHelpKeyword);
             foreach (string line in slittedByNewLine)
             {
                 xmlHelp.Add(line);
