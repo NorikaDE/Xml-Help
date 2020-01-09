@@ -9,6 +9,7 @@ This class library adds functionality to your program to deal with comment based
 ![Azure DevOps coverage](https://img.shields.io/azure-devops/coverage/NorikaDE/Xml-Help/1)
 ![Azure DevOps tests (compact)](https://img.shields.io/azure-devops/tests/NorikaDE/XML-Help/1?compact_message)
 [![CodeFactor](https://www.codefactor.io/repository/github/norikade/xml-help/badge/master)](https://www.codefactor.io/repository/github/norikade/xml-help/overview/master)
+![Nuget (with prereleases)](https://img.shields.io/nuget/vpre/Norika.Xml.CommentBasedHelp.Data)
 
 ## Sample
 
